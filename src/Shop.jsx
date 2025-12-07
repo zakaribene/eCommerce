@@ -16,7 +16,7 @@ function Shop() {
                     <h1>Loading...</h1>
                 ):(
                     data.map((item)=>(
-                        <div key={item.id} className='bg-amber-50 rounded-2xl mt-3 p-5 shadow-blue-300 hover:shadow-xl'>
+                        <div key={item.id} className='bg-gray-100 rounded-2xl mt-3 p-5 shadow-blue-300 hover:shadow-xl'>
                             <img 
                              src={item.thumbnail}
                              alt={item.title}
