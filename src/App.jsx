@@ -1,4 +1,5 @@
 import Shop from "./Shop"
+import Quotes from "./Quotes";
 
 
 function App() {
@@ -7,6 +8,8 @@ function App() {
   return (
    <>
    <Shop/>
+    {/* <Quotes /> */}
+
    </>
   )
 }
