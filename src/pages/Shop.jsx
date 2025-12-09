@@ -3,9 +3,15 @@ import React, { useState, useEffect } from 'react'
 function Shop() {
     const [data, setdata]=useState([]);
     useEffect(()=>{
-        fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=chicken")
-        .then(res=> res.json())
-        .then(result=> setdata(result.meals))
+        fetch("https://dummyjson.com/product?limit=20")
+        .then(res => {
+    if (!res.ok) {
+        throw new Error("Network error!");
+    }
+    return res.json();
+})
+
+        .then(result=> setdata(result.products))
     })
   return (
     <div>
@@ -18,14 +24,18 @@ function Shop() {
                     data.map((item)=>(
                         <div key={item.id} className='bg-gray-100 rounded-2xl mt-3 p-5 shadow-blue-300 hover:shadow-md transition-all '>
                             <img 
-                             src={item.strMealThumb}
+                             src={item.thumbnail}
                              alt={item.title}
+                             className='rounded-3xl'
                              />
                              <h3 className='text-center font-bold'>{item.strMeal}</h3>
                             <div className="flex justify-between px-4 py-2">
                                 <h2>category : {item.strCategory}</h2>
+                                <p>🌟🌟{item.rating}🌟🌟</p>
                                 <p className='font-bold'>${item.price}</p>
+                               
                             </div>
+                             <button className='text-center'>add Products</button>
                         </div>
                     ))
                 )
