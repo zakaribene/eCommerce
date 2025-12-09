@@ -1,49 +1,65 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
+import { FaStar } from "react-icons/fa";
+import { FaCartPlus } from "react-icons/fa";
 
 function Shop() {
-    const [data, setdata]=useState([]);
-    useEffect(()=>{
-        fetch("https://dummyjson.com/product?limit=20")
-        .then(res => {
-    if (!res.ok) {
-        throw new Error("Network error!");
-    }
-    return res.json();
-})
+  const [data, setData] = useState([]);
 
-        .then(result=> setdata(result.products))
-    })
+  useEffect(() => {
+    fetch("https://dummyjson.com/products?limit=20")
+      .then((res) => {
+        if (!res.ok) throw new Error("Network error!");
+        return res.json();
+      })
+      .then((result) => setData(result.products))
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
-    <div>
-        <h1 className='text-4xl text-green-500 font-bold text-center mt-4'>Our Store Products</h1>
-        <div className='w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-7'>
-            {
-                data.length===0? (
-                    <h1>Loading...</h1>
-                ):(
-                    data.map((item)=>(
-                        <div key={item.id} className='bg-gray-100 rounded-2xl mt-3 p-5 shadow-blue-300 hover:shadow-md transition-all '>
-                            <img 
-                             src={item.thumbnail}
-                             alt={item.title}
-                             className='rounded-3xl'
-                             />
-                             <h3 className='text-center font-bold'>{item.strMeal}</h3>
-                            <div className="flex justify-between px-4 py-2">
-                                <h2>category : {item.strCategory}</h2>
-                                <p>🌟🌟{item.rating}🌟🌟</p>
-                                <p className='font-bold'>${item.price}</p>
-                               
-                            </div>
-                             <button className='text-center'>add Products</button>
-                        </div>
-                    ))
-                )
-            }
-        </div>
-      
+    <div className="pb-20">
+      <h1 className="text-4xl text-green-500 font-extrabold text-center mt-8 mb-10">
+        Our Store Products
+      </h1>
+
+      <div className="w-10/12 mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        {data.length === 0 ? (
+          <h1 className="text-center text-xl font-bold">Loading...</h1>
+        ) : (
+          data.map((item) => (
+            <div
+              key={item.id}
+              className="bg-white shadow-lg rounded-2xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
+            >
+              <img
+                src={item.thumbnail}
+                alt={item.title}
+                className="h-52 w-full object-cover"
+              />
+
+              <div className="p-4">
+                <h2 className="text-lg font-bold mb-1">{item.title}</h2>
+
+                <p className="text-sm text-gray-600 mb-2">{item.category}</p>
+
+                <div className="flex items-center gap-1 text-yellow-500 mb-2">
+                  <FaStar /> <span className="text-black">{item.rating}</span>
+                </div>
+
+                <div className="flex justify-between items-center mt-3">
+                  <p className="text-xl font-bold text-green-600">${item.price}</p>
+
+                  <button className="flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-xl hover:bg-green-600 transition">
+                    <FaCartPlus />
+                    Add
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))
+        )}
+      </div>
     </div>
-  )
+  );
 }
 
-export default Shop
+export default Shop;
