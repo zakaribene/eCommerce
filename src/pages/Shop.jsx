@@ -6,7 +6,7 @@ function Shop() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("https://dummyjson.com/products?limit=20")
+    fetch("https://dummyjson.com/products?limit=1000")
       .then((res) => {
         if (!res.ok) throw new Error("Network error!");
         return res.json();

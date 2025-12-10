@@ -7,7 +7,7 @@ function Home() {
       {/* Section 1: Hero Banner */}
       <section className="relative bg-green-500 text-white h-[500px] flex items-center justify-center rounded-b-3xl overflow-hidden">
         <img
-          src="https://i.pinimg.com/736x/dc/8b/b8/dc8bb886d720b132cb5b92d4f08712ae.jpg"
+          src="https://images.unsplash.com/photo-1761839257864-c6ccab7238de?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="hero"
           className="absolute inset-0 w-full h-full object-cover object-center opacity-55"
         />
