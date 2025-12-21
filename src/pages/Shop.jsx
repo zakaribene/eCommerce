@@ -6,15 +6,13 @@ function Shop() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("https://dummyjson.com/products?limit=1000")
+    fetch("https://dummyjson.com/products")
       .then((res) => {
         if (!res.ok) throw new Error("Network error!");
         return res.json();
       })
       .then((result) => setData(result.products))
-      .catch((err) => console.log(err));
-  }, []);
-
+      .catch((err) => console.log(err)); }, []);
   return (
     <div className="pb-20">
       <h1 className="text-4xl text-green-500 font-extrabold text-center mt-8 mb-10">
@@ -39,11 +37,17 @@ function Shop() {
               <div className="p-4">
                 <h2 className="text-lg font-bold mb-1">{item.title}</h2>
 
-                <p className="text-sm text-gray-600 mb-2">{item.category}</p>
+               <div className="flex justify-between">
+                 <p className="text-sm text-gray-600 mb-2">{item.category}</p>
 
                 <div className="flex items-center gap-1 text-yellow-500 mb-2">
                   <FaStar /> <span className="text-black">{item.rating}</span>
                 </div>
+               </div>
+               <div className="flex justify-between">
+                 <p className="text-sm text-gray-600 mb-2">Stock : {item.stock}</p>
+                 <p className="text-sm text-gray-600 mb-2">{item.brand}</p>
+               </div>
 
                 <div className="flex justify-between items-center mt-3">
                   <p className="text-xl font-bold text-green-600">${item.price}</p>
