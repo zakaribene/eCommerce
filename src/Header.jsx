@@ -1,53 +1,51 @@
-"use client"
+import { useEffect, useState } from "react";
+import { BiCart } from "react-icons/bi";
+import { Link, useNavigate } from "react-router-dom";
 
-import { useState } from "react"
-import { BiCart } from "react-icons/bi"
-import { GiHamburgerMenu } from "react-icons/gi"
-import { MdClose } from "react-icons/md"
-import { Link } from "react-router-dom"
+function Header() {
+  const [count, setCount] = useState(0);
+  const navigate = useNavigate();
 
-const Header = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  useEffect(() => {
+    const updateCount = () => {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const total = cart.reduce((sum, item) => sum + item.qty, 0);
+      setCount(total);
+    };
+
+    updateCount();
+    window.addEventListener("cartUpdated", updateCount);
+
+    return () => {
+      window.removeEventListener("cartUpdated", updateCount);
+    };
+  }, []);
 
   return (
-    <header className="flex justify-around items-center p-4 md:p-6">
-      <h1 className="text-2xl md:text-3xl font-bold text-blue-500">
-        Zakaria <span>Elmi</span>
+    <header className="flex justify-between items-center px-6 md:px-16 py-4 bg-white shadow sticky top-0 z-50">
+   
+      <h1 className="text-2xl font-bold text-blue-500">
+        Zakaria <span className="text-black">Elmi</span>
       </h1>
 
-      <nav className="hidden md:flex gap-6 text-lg md:text-2xl">
+      <nav className="hidden md:flex gap-8 font-medium">
         <Link to="/">Home</Link>
         <Link to="/shop">Shop</Link>
         <Link to="/about">About</Link>
         <Link to="/contact">Contact</Link>
       </nav>
 
-      <div className="flex items-center gap-4">
-        <BiCart className="text-2xl md:text-3xl cursor-pointer" />
-
-        <button className="md:hidden text-2xl" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <MdClose /> : <GiHamburgerMenu />}
-        </button>
+      <div
+        className="relative cursor-pointer hover:text-blue-500"
+        onClick={() => navigate("/cart")}
+      >
+        <BiCart className="text-3xl" />
+        <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+          {count}
+        </span>
       </div>
-
-      {isOpen && (
-        <nav className="absolute top-16 left-0 right-0 bg-white shadow-lg md:hidden flex flex-col gap-4 p-4 text-lg border-t">
-          <Link to="/" onClick={() => setIsOpen(false)}>
-            Home
-          </Link>
-          <Link to="/shop" onClick={() => setIsOpen(false)}>
-            Shop
-          </Link>
-          <Link to="/about" onClick={() => setIsOpen(false)}>
-            About
-          </Link>
-          <Link to="/contact" onClick={() => setIsOpen(false)}>
-            Contact
-          </Link>
-        </nav>
-      )}
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;
