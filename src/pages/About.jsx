@@ -2,8 +2,9 @@ import { FaRocket, FaUsers, FaBullseye } from "react-icons/fa";
 
 export default function About() {
   return (
+  
     <div className="max-w-4xl mx-auto mt-12 p-6">
-
+      
       {/* Heading */}
       <h1 className="text-4xl font-extrabold text-center text-blue-600 mb-4">
         About Us

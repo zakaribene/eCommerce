@@ -22,11 +22,13 @@ function Header() {
   }, []);
 
   return (
-    <header className="flex justify-between items-center px-6 md:px-16 py-4 bg-white shadow sticky top-0 z-50">
+    <header className="flex justify-around items-center px-6 md:px-16 py-4 bg-white shadow sticky top-0 z-50">
    
-      <h1 className="text-2xl font-bold text-blue-500">
-        Zakaria <span className="text-black">Elmi</span>
-      </h1>
+    <h1 className="text-2xl font-bold text-blue-500">
+  <Link to="/">
+    Zakaria <span className="text-black">Elmi</span>
+  </Link>
+</h1>
 
       <nav className="hidden md:flex gap-8 font-medium">
         <Link to="/">Home</Link>
