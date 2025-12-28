@@ -1,7 +1,7 @@
+import './index.css'
 import Shop from "./pages/Shop"
 import Home from './pages/Home'
 import About from './pages/About'
-import './index.css'
 import Header from './header'
 import Contact from "./pages/Contact";
 import Footer from "./Footer";
