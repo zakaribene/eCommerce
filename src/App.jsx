@@ -1,9 +1,9 @@
 import Shop from "./pages/Shop"
-import Quotes from "./Quotes";
+// import Quotes from "./Quotes";
 import Home from './pages/Home'
 import About from './pages/About'
 import './index.css'
-import Header from "./header";
+import Header from "./Header";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Contact from "./pages/Contact";
 import Footer from "./Footer";
