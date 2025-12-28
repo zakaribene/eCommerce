@@ -24,7 +24,7 @@ function Header() {
 
   return (
     <header className="bg-white shadow sticky top-0 z-50">
-      <div className="flex justify-between items-center px-6 py-4 md:px-16">
+      <div className="flex justify-around items-center px-6 py-4 md:px-16">
         
         {/* Logo */}
         <h1 className="text-2xl font-bold text-blue-500">
