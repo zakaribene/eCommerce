@@ -2,9 +2,9 @@ import './index.css'
 import Shop from "./pages/Shop"
 import Home from './pages/Home'
 import About from './pages/About'
-import Header from './header'
 import Contact from "./pages/Contact";
 import Footer from "./Footer";
+import Header from './pages/header'
 import Cart from "./pages/Cart";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
