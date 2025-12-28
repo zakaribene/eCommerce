@@ -62,5 +62,5 @@ export default function Footer() {
     </footer>
 
   );
-  <Footer/>
+  // <Footer/>
 }
