@@ -5,7 +5,7 @@ import About from './pages/About'
 import Contact from "./pages/Contact";
 import Footer from "./Footer";
 import Header from './pages/header'
-import Cart from "./pages/Cart";
+import Cart from "./pages/cart";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
   // ✅ CART IMPORT
