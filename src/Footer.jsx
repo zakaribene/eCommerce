@@ -1,4 +1,5 @@
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -33,18 +34,18 @@ export default function Footer() {
             <h3 className="text-lg font-semibold text-white mb-3">Follow Us</h3>
 
             <div className="flex items-center gap-4 text-2xl">
-              <a className="hover:text-blue-500" href="#">
+              <Link className="hover:text-blue-500" href="#">
                 <FaFacebook />
-              </a>
-              <a className="hover:text-pink-500" href="#">
+              </Link>
+              <Link className="hover:text-pink-500" href="#">
                 <FaInstagram />
-              </a>
-              <a className="hover:text-blue-400" href="#">
+              </Link>
+              <Link className="hover:text-blue-400" href="#">
                 <FaTwitter />
-              </a>
-              <a className="hover:text-red-500" href="#">
+              </Link>
+              <Link className="hover:text-red-500" href="#">
                 <FaYoutube />
-              </a>
+              </Link>
             </div>
           </div>
 
