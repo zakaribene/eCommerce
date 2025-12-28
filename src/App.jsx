@@ -7,8 +7,8 @@ import Header from "./Header";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Contact from "./pages/Contact";
 import Footer from "./Footer";
-import Cart from "./pages/Cart";   // ✅ CART IMPORT
-
+import Cart from "./pages/Cart";
+  // ✅ CART IMPORT
 function App() {
   return (
     <>
